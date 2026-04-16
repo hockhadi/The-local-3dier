@@ -92,6 +92,7 @@ function showColors() {
 
         <div class="item" onclick="changeColor('rainbow', 3)">Rainbow Gold (+3 Rs)</div>
         <div class="item" onclick="changeColor('matte', 3)">Matte Black (+3 Rs)</div>
+        <div class="item" onclick="changeColor('squishy', 5)">Squishy Black (+5 Rs)</div>
 
         <div class="item" onclick="changeColor('silver', 0)">Silver</div>
         <div class="item" onclick="changeColor('grey', 0)">Grey</div>
@@ -128,10 +129,23 @@ function changeColor(color, extra) {
             )
         `;
         ball.style.backgroundSize = "200% 200%";
+
     } else if (color === "matte") {
         ball.style.background = "#222";
+
+    } else if (color === "squishy") {
+        ball.style.background = "#111";
+        ball.style.boxShadow = `
+            inset -20px -20px 30px rgba(0,0,0,0.8),
+            inset 20px 20px 30px rgba(255,255,255,0.05)
+        `;
+
     } else {
         ball.style.background = color;
+        ball.style.boxShadow = `
+            inset -10px -10px 20px rgba(0,0,0,0.5),
+            inset 10px 10px 20px rgba(255,255,255,0.2)
+        `;
     }
 
     updatePrice();
@@ -167,4 +181,3 @@ function updatePrice() {
 
 </body>
 </html>
-<title>The Local 3D</title>
